@@ -1,0 +1,53 @@
+{% extends '_base.html' %}
+
+{% block brand %}
+    <div class="col-12">
+        <h3 class="mb-5"><i class="fas fa-cloud"></i> Tag Cloud</h3>
+    </div>
+    {% endblock %}
+
+{% block content %}
+<div class='container'>
+<div class='row'>
+<div class='col-2'>
+    <h6><i class="fas fa-sticky-note"></i> Notes:</h6>
+    <ul>
+        <li>Cloud grows by adding tags</li>
+        <li>Words grow by using them as tags</li>
+        <li>Words change color based on frequency</li>
+        <li>-------------------------</li>
+        <li>Click the words to search for them</li>
+    </ul>
+
+</div>
+
+<div id="cloud" class="col-10">
+    
+
+<script>
+var words = [
+{% for x, y in results %}
+{text: "{{ x }}", weight: {{ y }}, handlers: {
+    click: function() {
+        window.location.href = "http://www.domain.com/search/{{ x }}";;
+    }
+}},
+{% endfor %}
+];
+
+$('#cloud').jQCloud(words, {
+           height: 550,
+           width: 1000,
+           colors: ["#178046", "#163b27", "#96e3ba", "#06381d", "#0dba5d", "#00fa74", "#284033", "#111212", "#3c804d"],
+           fontSize: {
+                from: 0.05,
+                to: 0.02
+            }
+       });
+</script>
+
+</div>
+</div>
+</div>
+
+{% endblock %}
