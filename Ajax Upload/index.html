@@ -1,0 +1,63 @@
+{% extends '_base.html' %}
+{% block head %}
+{{super()}}
+<link rel="stylesheet" href="{{ url_for('static', path='css/img_client.css') }}">
+{% endblock %}
+
+{% block title %}  {% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <!--Notice-->
+                <div class="container mt-5">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                            <div class="alert alert_info"> <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button> <strong>File Successfully Uploaded!</strong> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--END notice-->
+                <div class="dz-parent" id='sizeBox'>
+                    <div id="dz-child">
+
+                    <form class="ajaxup" id="ajaxuploader" enctype="multipart/form-data" action="/-/image" method="POST">
+
+                    <div class="content-box" id="small-box">
+                        <button type="button" class="custom-file-input" name='files' id="customFile" multiple>Choose</button>
+                         <label class="custom-file-label" id='customFileLabel' for="customFile">Choose File</label>
+                        <span style="padding-left:5px;vertical-align:middle;"><i>Upload Images Only</i></span>
+                        
+                        <div id="errormsg" class="clearfix redtext" style="padding-top: 10px;"></div>
+                        
+                        <div id="pic-progress-wrap" class="progress-wrap" style="margin-top:10px;margin-bottom:10px;"></div>
+                        
+                        <div id="picture" class="clear" style="padding-top:0px;padding-bottom:10px;"></div>
+                        
+                        <div class="clear-line" style="margin-top:10px;"></div>
+                        <input name="description" id="description" placeholder="describe it...">
+                        <input name="category" id="category" placeholder="categorize it...">
+                    </div>
+
+                    <button type='submit' id='submit' value="submit">submit</button>
+                  </form>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+{% block script %}
+{{super()}}
+<script src="{{ url_for('static', path='vendor/js/ajax_upload.js') }}"></script>
+<script src="{{ url_for('static', path='js/img_client.js') }}"></script>
+{% endblock %}
+

@@ -20,3 +20,10 @@ Creates a word cloud based on a collection of words provided. Clicking on one of
 For example to search Google use the URL `https://www.google.com/search?q={{ x }}` 
 
 > Uses [jQCloud](https://mistic100.github.io/jQCloud/)
+
+
+#### File Upload with Ajax
+
+Allows multi-part uploads using AJAX. 
+
+> Uses [Simple AJAX Uploader](https://github.com/LPology/Simple-Ajax-Uploader)
